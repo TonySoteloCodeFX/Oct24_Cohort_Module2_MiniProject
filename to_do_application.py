@@ -87,20 +87,28 @@ while keep_running:
     print("Menu:")
     print("1. Add a task\n2. View tasks\n3. Mark a task as complete\n4. Delete a task\n5. Quit")
     print("-" * 50)
-    operation = int(input("Enter Option: "))
-    if operation == 1:
-        add_task()
-    elif operation == 2:
-        view_tasks()
-    elif operation == 3:
-        mark_complete()
-    elif operation == 4:
-        delete_task()
-    elif operation == 5:
-        clr()
-        print(goodbye)
-        keep_running = False
-    else:
-        clr()
+    
+    try:
+        operation = int(input("Enter Option: "))
+        if operation == 1:
+            add_task()
+        elif operation == 2:
+            view_tasks()
+        elif operation == 3:
+            mark_complete()
+        elif operation == 4:
+            delete_task()
+        elif operation == 5:
+            clr()
+            print(goodbye)
+            keep_running = False
+        else:
+            clr()
+            print("-" * 50)
+            print("That is not an option. Try again.\n")
+    except ValueError:
+        print("You must type a number. Try again.")
         print("-" * 50)
-        print("That is not an option. Try again.\n")
+    finally:
+        print("Thank you for using the TO-DO Application\n")
+        print("-" * 50)
